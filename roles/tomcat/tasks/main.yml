@@ -1,0 +1,6 @@
+---
+# tasks file for tomcat
+- import_tasks: getpackage.yml
+- import_tasks: extractpackage.yml
+- import_tasks: configTom.yml
+- import_tasks: startService.yml

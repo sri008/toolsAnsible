@@ -1,0 +1,24 @@
+- name: Get the package
+  get_url:
+    url: https://dependencies001.s3.amazonaws.com/apache-maven-3.6.3-bin.tar.gz
+    dest: /opt/
+  become: yes
+
+- name: Unpack the file
+  unarchive:
+    src: /opt/apache-maven-3.6.3-bin.tar.gz
+    dest: /opt/
+    remote_src: yes
+
+- name: Change the folder name
+  shell: mv /opt/apache-maven-3.6.3 /opt/maven
+
+- name: Adding the lines in profile
+  blockinfile:
+    path: /etc/profile
+    block: |
+          export M2_HOME=/opt/maven
+          PATH=${M2_HOME}/bin:${PATH}
+          PATH=$PATH:/usr/bin export PATH
+- name: Reload profile
+  shell: source /etc/profile

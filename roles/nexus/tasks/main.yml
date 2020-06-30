@@ -1,0 +1,4 @@
+---
+# tasks file for nexus
+- include_tasks: getPackage.yml
+- include_tasks: startNexus.yml

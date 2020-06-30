@@ -1,0 +1,23 @@
+- name: get the package and unpack it
+  get_url:
+    url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-{{ sonar_version}}.zip
+    dest: /opt/
+  become: yes
+
+- name: Unpack the package
+  unarchive:
+    src: /opt/sonarqube-{{ sonar_version}}.zip
+    dest: /opt/
+    remote_src: yes
+- name: get the package and unpack sonarscanner
+  get_url:
+    url: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-{{ sonar_scanner_version }}-linux.zip
+    dest: /opt/
+  #become: yes
+
+- name: Unpack the package
+  unarchive:
+    src: /opt/sonar-scanner-cli-{{ sonar_scanner_version}}-linux.zip
+    dest: /opt/
+    remote_src: yes
+

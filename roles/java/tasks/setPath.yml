@@ -1,0 +1,11 @@
+- name: Set Path for Java
+  shell:
+    cmd: export JAVA_HOME=/opt/jdk1.8.0_212
+
+- name: JRE set
+  shell:
+    cmd: export JRE_HOME=/opt/jdk1.8.0_212/jre/
+
+- name: set in PATH
+  shell:
+    cmd: export PATH=$PATH:/opt/jdk1.8.0_212/bin:/opt/jdk1.8.0_212/jre/bin

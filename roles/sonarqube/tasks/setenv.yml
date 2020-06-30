@@ -1,0 +1,10 @@
+- name: set sonar scanner path
+  blockinfile:
+    path: /etc/environment
+    block: |
+      export SONAR_SCANNER=/opt/sonar-scanner-{{ sonar_scanner_version }}-linux
+      export PATH=${SONAR_SCANNER}/bin:${PATH}
+
+- name: reload the environment file
+  shell:
+    cmd: source /etc/environment

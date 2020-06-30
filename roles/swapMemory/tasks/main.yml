@@ -1,0 +1,29 @@
+---
+# tasks file for swapMemory
+- name: create a file used to swap
+  shell:
+    cmd: dd if=/dev/zero of=/mnt/swapfile bs=1024 count=4097152
+
+- name: set permission to swap file
+  file:
+    path: /mnt/swapfile
+    owner: root
+    group: root
+    mode: 0600
+
+- name: format the file for swap
+  shell:
+    cmd: mkswap /mnt/swapfile
+
+- name: SwapOn
+  command: swapon /mnt/swapfile
+
+- name: Set the fstab
+  shell:
+    cmd: echo -e "/swapfile           swap     swap    default  0 0 \n/mnt/swapfile   swap    swap    defaults 0 0">>/etc/fstab
+
+#- name: Set the fstab
+ # blockinfile: |
+- name: Mount
+  shell:
+    cmd: mount -a    

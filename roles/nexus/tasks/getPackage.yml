@@ -1,0 +1,15 @@
+- name: download the package
+  get_url:
+    url: http://www.sonatype.org/downloads/nexus-latest-bundle.zip
+    dest: /opt/
+
+- name: Folder permission
+  file:
+    path: /opt/nexus-2.14.18-01-bundle.zip
+    mode: '777'
+
+- name: unpack the package
+  unarchive:
+    src: /opt/nexus-2.14.18-01-bundle.zip
+    dest: /opt/
+    remote_src: yes

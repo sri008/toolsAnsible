@@ -1,0 +1,8 @@
+- name: change in bin/nexus file
+  lineinfile:
+    path: /opt/nexus-2.14.18-01/bin/nexus
+    regexp: '^#RUN_AS_USER='
+    line: RUN_AS_USER=root
+
+- name: starup the nexus
+  command: chdir=/opt/nexus-2.14.18-01/bin/ ./nexus start &

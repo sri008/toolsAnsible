@@ -1,0 +1,6 @@
+- name: Extract the file
+  become: yes
+  unarchive:
+    src: /opt/apache-tomcat-{{tomcat_version}}.tar.gz
+    dest: /opt/
+    remote_src: yes

@@ -1,0 +1,16 @@
+- name: alternative 1
+  command: alternatives --install /usr/bin/java java /opt/jdk1.8.0_212/bin/java 2
+
+- name: alternative 2
+  command: alternatives --set java /opt/jdk1.8.0_212/bin/java
+
+- name: alternative 3
+  command: alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_212/bin/jar 2
+
+- name: alternative 4
+  command: alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_212/bin/javac 2
+
+- name: alternative 5
+  command: alternatives --set jar /opt/jdk1.8.0_212/bin/jar
+- name: alternative 6
+  command: alternatives --set javac /opt/jdk1.8.0_212/bin/javac

@@ -1,0 +1,4 @@
+---
+# tasks file for jenkins
+- include_tasks: getJenkinsRepo.yml
+- include_tasks: startJenkins.yml

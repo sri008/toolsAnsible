@@ -1,0 +1,12 @@
+- name: Download the Java package
+  get_url:
+    url: https://dependencies001.s3.amazonaws.com/jdk-8u212-linux-x64.tar.gz
+    dest: /opt/
+  become: yes
+
+- name: Unpack the Package
+  become: yes
+  unarchive:
+    src: /opt/jdk-8u212-linux-x64.tar.gz
+    dest: /opt/
+    remote_src: yes

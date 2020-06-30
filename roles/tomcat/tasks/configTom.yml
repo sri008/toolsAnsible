@@ -1,0 +1,12 @@
+- name: Configure Tomcat User
+  template:
+    src: tomcat-users.xml.j2
+    dest: "/opt/apache-tomcat-{{ tomcat_version }}/conf/tomcat-users.xml"
+- name: Configure context
+  template:
+    src: context.xml.j2
+    dest: "/opt/apache-tomcat-{{ tomcat_version }}/webapps/manager/META-INF/context.xml"
+- name: Set the env
+  template:
+    src: setenv.sh.j2
+    dest: "/opt/apache-tomcat-{{ tomcat_version }}/bin/setenv.sh"

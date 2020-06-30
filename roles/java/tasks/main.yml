@@ -1,0 +1,5 @@
+---
+# tasks file for java
+- include_tasks: GetPackage.yml
+- include_tasks: configJava.yml
+- include_tasks: setPath.yml

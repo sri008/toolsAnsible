@@ -1,0 +1,4 @@
+---
+# vars file for sonarqube
+sonar_version: 7.6
+sonar_scanner_version: 3.3.0.1492

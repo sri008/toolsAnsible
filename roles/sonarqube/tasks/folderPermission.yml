@@ -1,0 +1,11 @@
+- name: mode  
+  file:
+    path: /opt/sonarqube-{{ sonar_version}}
+    owner: ec2-user
+    group: ec2-user
+    mode: '777'
+- name: Folder permission
+  file:
+    path: /opt/sonar-scanner-{{ sonar_scanner_version }}-linux
+    owner: ec2-user
+    group: ec2-user

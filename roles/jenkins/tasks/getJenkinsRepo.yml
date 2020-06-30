@@ -1,0 +1,9 @@
+- name: Get jenkins repo
+  become: yes
+  shell:
+    cmd: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+- name: Import jenkins key
+  become: yes
+  shell:
+    cmd: rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
