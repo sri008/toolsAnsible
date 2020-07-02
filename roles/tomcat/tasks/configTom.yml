@@ -1,11 +1,24 @@
-- name: Configure Tomcat User
-  template:
-    src: tomcat-users.xml.j2
-    dest: "/opt/apache-tomcat-{{ tomcat_version }}/conf/tomcat-users.xml"
+#- name: Configure Tomcat User
+ # template:
+  #  src: tomcat-users.xml.j2
+   # dest: "/opt/apache-tomcat-{{ tomcat_version }}/conf/tomcat-users.xml"
+- name: Add tomcat user
+  lineinfile:
+    path: "/opt/apache-tomcat-{{ tomcat_version }}/conf/tomcat-users.xml"
+    insertbefore: </tomcat-users>
+    line: <user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
+
 - name: Configure context
   template:
     src: context.xml.j2
     dest: "/opt/apache-tomcat-{{ tomcat_version }}/webapps/manager/META-INF/context.xml"
+
+- name: set the port
+  replace:
+    path: "/opt/apache-tomcat-{{ tomcat_version }}/conf/server.xml"
+    regexp: 'Connector port="8080" protocol="HTTP/1.1"'
+    replace: 'Connector port="8888" protocol="HTTP/1.1"'
+
 - name: Set the env
   template:
     src: setenv.sh.j2

@@ -6,7 +6,7 @@
     #- swapMemory
     #- tomcat
     #- java
-    #- jenkins
-    #- maven
+    - jenkins
+    - maven
     #- sonarqube
-    - nexus
+    #- nexus
